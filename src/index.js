@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import MovieShowcase from './MovieShowcase';
+import { init } from './canvasHelpers'
+import ChromeBoisDomain from './ChromeBoisDomain.js'
 
-ReactDOM.render(<MovieShowcase />, document.getElementById('root'));
+init()
+
+ReactDOM.render(<ChromeBoisDomain />, document.getElementById('root'));

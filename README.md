@@ -3,86 +3,48 @@
 
 ## Objectives
 
-1. Practice passing props from parent components to children
-2. Practice using default props
-3. Practice jumping into and improving existing code 
+1. Practice affixing and handling Synthetic Events in React
+2. Have fun with an absolute [legend][legend]
 
 
 ## Introduction
 
-This is a barebones React application used to showcase the nine greatest movies
-of all time. Your job is to update it so that it passes props from parent to
-children components correctly. In addition, you will implement default props so
-that 'bad/missing data' is properly handled - preventing our user interface from
-blowing up our visitors' computers
+Let's jump right into a React application and add event capturing + handling
+functionality. We have a simple single component application that renders a
+900x600 canvas. All of our work will be done in `src/ChromeBoisDomain.js`. 
 
-Following is the component tree. When fully rendered, there are **9**
-`MovieCards` rendered by `MovieShowcase`:
+For this lab, minimal guidance will be given. If you run into trouble, you are
+expected to reference the React Crash Course ReadMe lesson and React
+documentation on events:
 
-```
-└── MovieShowcase
-    │
-    ├── MovieCard
-    │   ├── CardFront
-    │   └── CardBack
-    │    
-    └── MovieCard
-        ├── CardFront
-        └── CardBack
-```
-
-`MovieShowcase` is the component that will house all of the 'raw' data
-associated with the movies we want to display. This data is located in
-`src/data.js` and is already being imported.
-
-`MovieCard` components (which showcase a single movie) receive their individual
-movie information from `MovieShowcase` as four props: `title`, `IMDBRating`,
-`genres`, and `poster`. Following, the props are passed again to either
-`CardFront` or `CardBack`.
-
-In our movie data set, we occasionally have missing data. This is where
-`defaultProps` come in and really pull our buns out of the fire. We will be
-handling all of our `defaultProp`'ing in `MovieCard` before they are passed down
-the chain to the front and back components.
+- [React Synthetic Events](https://reactjs.org/docs/events.html)
+- [Handling Events](https://reactjs.org/docs/handling-events.html)
+- [Supported Events](https://reactjs.org/docs/events.html#supported-events)
 
 
 ## Deliverables
 
-###### `MovieShowcase`
-1. `.map` over the imported movie data array and render `MovieCard`s for each element. (see [documentaion)][lists-and-keys]
-2. Don't forget to pass _all 4_ props
-
-###### `MovieCard`
-1. `defaultProps` should be assigned in `MovieCard` for all four of the props:
-  - `title` receives an 'Unknown' string
-  - `IMDBRating` simply gets assigned to null
-  - `genres` should receive a value that will work with our `CardBack` component's rendering method for genres. The screen should read: 'No Genre(s) Found'
-  - `poster` should get the string `default`
-2. pass the correct props to the correct back/front components
-(**Note:** the `posterMap` already takes care of converting a string into the appropriate poster asset)
-
-###### `CardFront`
-1. the prop should be used to apply a background image. This can be done inline via: 
-```js
-style={{backgroundImage: `url(${prop})`}}
-```
-
-###### `CardBack`
-1. render the genres (as comma separated) strings
-2. render the title value
-3. Finish writing the method `generateRatingElement`, which should do the following:
-  - if the IMDBRating prop is null, return an `<h4>` with the contents 'No Rating Found'
-  - otherwise, return `<img src={imgMapper[prop]} alt="" />` (using the correct prop)
+- Finish implementing the `handleMouseMove` method. This method should capture the `x` and `y` coordinates of the mouse, use them to invoke the `drawChromeBoiAtCoords` method that has been provided and is already imported
+- Add an event listener to the `<canvas>` element to capture a click. Create an event handler which, when fired, invokes the provided `toggleCycling` function (with no arguments)
+- Add an event listener to the `<canvas>` element to capture when a key is pressed. When a key is pressed, an event handler should invoke the the provided `resize` function with a single argument of either '+' or '-':
+  - If the key pressed was 'a', then it should call `resize` with '+'
+  - If the key pressed was 's', then it should call `resize` with '+' 
 
 
 #### Once Finished
 
-`npm start` and make sure everything is functioning how you would like!
+`npm start` and assert the following expected behavior:
+
+- As the mouse moves around the canvas element in the browser, ChromeBoi is constantly drawn to the screen
+- If the user clicks on the canvas, ChromeBoi begins cycling colors as he is drawn
+- If the user presses either 'a' or 's' (while the canvas is on focus), ChromeBoi begins drawing either larger or smaller
 
 
 ## Resources
-- [React Default Prop Values](https://reactjs.org/docs/components-and-props.html#default-prop-values)
+- [React Synthetic Events](https://reactjs.org/docs/events.html)
+- [Handling Events](https://reactjs.org/docs/handling-events.html)
+- [Supported Events](https://reactjs.org/docs/events.html#supported-events)
 
-<p class='util--hide'>View <a href='https://learn.co/lessons/react-props-movie-lab'>Props Lab</a> on Learn.co and start learning to code for free.</p>
+<p class='util--hide'>View <a href='https://learn.co/lessons/react-events-crash-course-lab'>React Events Crash Course Lab</a> on Learn.co and start learning to code for free.</p>
 
-[lists-and-keys]: https://reactjs.org/docs/lists-and-keys.html
+[legend]: https://en.wikipedia.org/wiki/Draft:Chrome_Boi
