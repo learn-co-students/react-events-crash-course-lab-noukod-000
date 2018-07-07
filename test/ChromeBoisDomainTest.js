@@ -77,6 +77,6 @@ describe('<ChromeBoisDomain />', () => {
     comp.find('canvas').simulate('keyPress', event)
     comp.find('canvas').simulate('keyUp', event)
     
-    expect(resize.getCall(0).args[0]).to.equal('+')
+    expect(resize.getCall(0).args[0]).to.equal('-')
   })
 })
