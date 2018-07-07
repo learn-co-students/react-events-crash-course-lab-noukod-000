@@ -13,7 +13,8 @@ export default class ChromeBoisDomain extends Component {
   }
   
   /* TODO: Create an event handler which, when fired, invokes the provided
-   * `toggleCycling` function with no arguments. Don't forget the event listener!
+   * `toggleCycling` function with no arguments. Don't forget the click event
+   * listener that should fire it!
    */
    
   /* TODO: Add an event listener to the `<canvas>` element to capture when a key
