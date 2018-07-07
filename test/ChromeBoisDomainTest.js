@@ -72,6 +72,7 @@ describe('<ChromeBoisDomain />', () => {
       key: 's',
       which: 83,
     }
+    resize.reset()
     // testing for all in case students pick different ones. Any should work just fine
     comp.find('canvas').simulate('keyDown', event)
     comp.find('canvas').simulate('keyPress', event)
