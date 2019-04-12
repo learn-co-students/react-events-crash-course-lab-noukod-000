@@ -8,6 +8,9 @@ export default class ChromeBoisDomain extends Component {
     const [x, y] = [event.clientX, event.clientY]
     console.log(`Moving ${x}, ${y}`)
     drawChromeBoiAtCoords(x,y)
+    // or 
+    //    drawChromeBoiAtCoords(event.clientX, event.clientY)
+
   }
 
   handleKeyPress = (e) => {
@@ -19,7 +22,7 @@ export default class ChromeBoisDomain extends Component {
       resize('-')
     }
   }
-  
+
   render() {
     return (
       <canvas 
