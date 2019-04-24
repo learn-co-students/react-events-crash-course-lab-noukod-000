@@ -1,0 +1,4 @@
+export const GET_DISCUSSIONS = 'GET_DISCUSSIONS';
+export const GET_DISCUSSION = 'GET_DISCUSSION';
+export const GET_CHANNELS = 'GET_CHANNELS';
+export const GET_CHANNEL = 'GET_CHANNEL';
